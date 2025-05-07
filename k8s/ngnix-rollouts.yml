@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
         - name: nginx-rollouts
-          image: nginx:1.21.6
+          image: nginx:1.21.5
           ports:
             - containerPort: 80
 ---
