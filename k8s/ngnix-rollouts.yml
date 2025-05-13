@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: nginx-rollouts
+  namespace: argo-demo
 spec:
   replicas: 5
   strategy:
@@ -29,13 +30,30 @@ spec:
           ports:
             - containerPort: 80
 ---
+# Internal access within the cluster
 apiVersion: v1
 kind: Service
 metadata:
   name: nginx-service
+  namespace: argo-demo
 spec:
   ports:
     - port: 8080
       targetPort: 80
   selector:
     app: nginx-rollouts
+  type: ClusterIP
+---
+# External access via LoadBalancer
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service-lb
+  namespace: argo-demo
+spec:
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: nginx-rollouts
+  type: LoadBalancer
