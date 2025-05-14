@@ -1,6 +1,4 @@
-prometheus-node-exporter:
-  enabled: false
-prometheus-prometheus-node-exporter:
+nodeExporter:
   enabled: false
 grafana:
   enabled: true
