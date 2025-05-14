@@ -1,5 +1,7 @@
 prometheus-node-exporter:
   enabled: false
+prometheus-prometheus-node-exporter:
+  enabled: false
 grafana:
   enabled: true
   defaultDashboardsEnabled: true
