@@ -22,7 +22,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app.kubernetes.io/name: example-hotrod
+      app: example-hotrod
   endpoints:
     - port: frontend
       scheme: https
