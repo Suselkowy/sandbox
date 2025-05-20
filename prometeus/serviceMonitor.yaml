@@ -24,4 +24,5 @@ spec:
     matchLabels:
       app.kubernetes.io/name: example-hotrod
   endpoints:
-    - port: metrics
+    - port: frontend
+      path: /metrics
