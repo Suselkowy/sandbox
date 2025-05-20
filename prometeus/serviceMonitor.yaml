@@ -27,4 +27,5 @@ spec:
     matchNames:
       - example-hotrod
   endpoints:
-    - port: frontend
+    - port: frontend # This refers to the named port in your Service definition
+      scheme: http # HotROD metrics are on HTTP
