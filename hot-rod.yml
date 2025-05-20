@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hotrod
+  namespace: argocd
+spec:
+  project: default
+  source:
+    path: hotrod
+    repoURL: "https://github.com/Suselkowy/sandbox.git"
+    targetRevision: main
+  destination:
+    namespace: hotrod
+    server: "https://kubernetes.default.svc"
+  syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
+      - CreateNamespace=true
+    automated:
+      prune: true
+      selfHeal: true
