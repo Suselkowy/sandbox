@@ -25,6 +25,7 @@ spec:
       app: example-hotrod
   endpoints:
     - port: frontend
+      path: /metrics
       scheme: https
       tlsConfig:
         insecureSkipVerify: true
