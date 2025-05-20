@@ -16,15 +16,15 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: hotrod-metrics
-  namespace: example-hotrod
+  namespace: example-hotrod # Must match the namespace of your HotROD Service
   labels:
-    release: prometheus
+    release: prometheus # Or whatever label your Prometheus Operator uses to discover ServiceMonitors
 spec:
   selector:
     matchLabels:
-      app: example-hotrod
+      app: example-hotrod # This label must be on your HotROD Service metadata
+  namespaceSelector: # Ensures it only looks for services in this namespace
+    matchNames:
+      - example-hotrod
   endpoints:
     - port: frontend
-      scheme: https
-      tlsConfig:
-        insecureSkipVerify: true
