@@ -25,4 +25,3 @@ spec:
       app.kubernetes.io/name: example-hotrod
   endpoints:
     - port: frontend
-      path: /metrics
