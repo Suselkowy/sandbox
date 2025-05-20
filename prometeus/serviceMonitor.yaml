@@ -15,7 +15,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: example-hotrod
+  name: hotrod-metrics
   namespace: example-hotrod
   labels:
     release: prometheus
@@ -25,3 +25,8 @@ spec:
       app.kubernetes.io/name: example-hotrod
   endpoints:
     - port: frontend
+      path: /metrics
+      scheme: https
+      interval: 10s
+      tlsConfig:
+        insecureSkipVerify: true
