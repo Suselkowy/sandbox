@@ -10,7 +10,7 @@ spec:
     repoURL: "https://github.com/Suselkowy/sandbox.git"
     targetRevision: main
   destination:
-    namespace: hotrod
+    namespace: example-hotrod
     server: "https://kubernetes.default.svc"
   syncPolicy:
     syncOptions:
