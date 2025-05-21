@@ -24,361 +24,30 @@ data:
           }
         ]
       },
-      "description": "",
       "editable": true,
       "fiscalYearStartMonth": 0,
-      "gnetId": 12611,
       "graphTooltip": 0,
+      "id": 26,
       "links": [],
-      "liveNow": false,
       "panels": [
         {
           "collapsed": false,
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
           "gridPos": {
             "h": 1,
             "w": 24,
             "x": 0,
             "y": 0
           },
-          "id": 43,
-          "panels": [],
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "P8E80F9AEF21F6940"
-              },
-              "refId": "A"
-            }
-          ],
-          "title": "Loki Overview",
-          "type": "row"
-        },
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "description": "Total  Count of log lines in the specified time range",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "color": "rgb(31, 255, 7)",
-                      "text": "0"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "rgb(31, 255, 7)",
-                    "value": null
-                  },
-                  {
-                    "color": "rgb(31, 255, 7)",
-                    "value": 10
-                  },
-                  {
-                    "color": "rgb(31, 255, 7)",
-                    "value": 50
-                  }
-                ]
-              },
-              "unit": "short"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 3,
-            "w": 12,
-            "x": 0,
-            "y": 1
-          },
-          "id": 11,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "sum"
-              ],
-              "fields": "/^{}$/",
-              "values": false
-            },
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "10.2.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "P8E80F9AEF21F6940"
-              },
-              "expr": "sum(count_over_time(({container_name=\"$container_name\"})[$__interval]))",
-              "hide": false,
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Total  Count of logs",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "description": "Total Count: of pattern: $searchable_pattern in the specified time range",
-          "fieldConfig": {
-            "defaults": {
-              "color": {
-                "mode": "thresholds"
-              },
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "color": "rgb(222, 15, 43)",
-                      "text": "0"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "rgb(222, 15, 43)",
-                    "value": null
-                  },
-                  {
-                    "color": "rgb(222, 15, 43)",
-                    "value": 10
-                  },
-                  {
-                    "color": "rgb(222, 15, 43)",
-                    "value": 50
-                  }
-                ]
-              },
-              "unit": "short"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 3,
-            "w": 12,
-            "x": 12,
-            "y": 1
-          },
-          "id": 6,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "colorMode": "value",
-            "graphMode": "area",
-            "justifyMode": "auto",
-            "orientation": "horizontal",
-            "reduceOptions": {
-              "calcs": [
-                "sum"
-              ],
-              "fields": "/^{}$/",
-              "values": false
-            },
-            "textMode": "auto",
-            "wideLayout": true
-          },
-          "pluginVersion": "10.2.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "P8E80F9AEF21F6940"
-              },
-              "expr": "sum(count_over_time(({container_name=\"$container_name\"} |~ \"(?i)$searchable_pattern\")[$__interval]))",
-              "hide": false,
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Total Count: of pattern $searchable_pattern",
-          "type": "stat"
-        },
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "description": "Live logs is a like 'tail -f' in a real time",
-          "gridPos": {
-            "h": 8,
-            "w": 18,
-            "x": 0,
-            "y": 4
-          },
-          "id": 2,
-          "options": {
-            "dedupStrategy": "none",
-            "enableLogDetails": true,
-            "prettifyLogMessage": false,
-            "showCommonLabels": false,
-            "showLabels": false,
-            "showTime": false,
-            "sortOrder": "Descending",
-            "wrapLogMessage": false
-          },
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "P8E80F9AEF21F6940"
-              },
-              "expr": "{container_name=\"$container_name\"} |~ \"(?i)$searchable_pattern\" ",
-              "hide": false,
-              "legendFormat": "",
-              "refId": "A"
-            }
-          ],
-          "title": "Live logs",
-          "type": "logs"
-        },
-        {
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "description": "",
-          "fieldConfig": {
-            "defaults": {
-              "mappings": [
-                {
-                  "options": {
-                    "match": "null",
-                    "result": {
-                      "color": "#299c46",
-                      "text": "0"
-                    }
-                  },
-                  "type": "special"
-                }
-              ],
-              "max": 100,
-              "min": 0,
-              "noValue": "0",
-              "thresholds": {
-                "mode": "absolute",
-                "steps": [
-                  {
-                    "color": "#299c46",
-                    "value": null
-                  },
-                  {
-                    "color": "rgba(237, 129, 40, 0.89)",
-                    "value": 10
-                  },
-                  {
-                    "color": "#C4162A",
-                    "value": 50
-                  }
-                ]
-              },
-              "unit": "percent"
-            },
-            "overrides": []
-          },
-          "gridPos": {
-            "h": 8,
-            "w": 6,
-            "x": 18,
-            "y": 4
-          },
-          "id": 9,
-          "links": [],
-          "maxDataPoints": 100,
-          "options": {
-            "minVizHeight": 75,
-            "minVizWidth": 75,
-            "orientation": "auto",
-            "reduceOptions": {
-              "calcs": [
-                "mean"
-              ],
-              "fields": "",
-              "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": false
-          },
-          "pluginVersion": "10.2.2",
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "P8E80F9AEF21F6940"
-              },
-              "expr": "sum(count_over_time(({container_name=\"$container_name\"} |~ \"(?i)$searchable_pattern\")[$__interval])) * 100 / sum(count_over_time(({container_name=\"$container_name\"})[$__interval]))",
-              "hide": false,
-              "legendFormat": "%",
-              "refId": "A"
-            }
-          ],
-          "title": "Percentage of \"$searchable_pattern\"  for specified time",
-          "type": "gauge"
-        },
-        {
-          "collapsed": false,
-          "datasource": {
-            "type": "loki",
-            "uid": "P8E80F9AEF21F6940"
-          },
-          "gridPos": {
-            "h": 1,
-            "w": 24,
-            "x": 0,
-            "y": 12
-          },
           "id": 37,
           "panels": [],
           "repeat": "endpoint",
-          "repeatDirection": "h",
-          "targets": [
-            {
-              "datasource": {
-                "type": "loki",
-                "uid": "P8E80F9AEF21F6940"
-              },
-              "refId": "A"
-            }
-          ],
           "title": "Endpoint: $endpoint",
           "type": "row"
         },
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "prometheus"
           },
           "fieldConfig": {
             "defaults": {
@@ -392,6 +61,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -422,8 +92,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -439,7 +108,7 @@ data:
             "h": 8,
             "w": 7,
             "x": 0,
-            "y": 13
+            "y": 1
           },
           "id": 13,
           "options": {
@@ -450,11 +119,12 @@ data:
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "none"
             }
           },
-          "pluginVersion": "10.2.2",
+          "pluginVersion": "12.0.0",
           "targets": [
             {
               "datasource": {
@@ -462,7 +132,7 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "rate(hotrod_http_requests_total{endpoint=~\"$endpoint\"}[5m])",
+              "expr": "rate(hotrod_http_requests_total{exported_endpoint=~\"$endpoint\"}[5m])",
               "interval": "",
               "legendFormat": "{{status_code}}",
               "range": true,
@@ -475,7 +145,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -490,6 +160,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 0,
                 "gradientMode": "none",
@@ -520,8 +191,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -536,7 +206,7 @@ data:
             "h": 8,
             "w": 8,
             "x": 7,
-            "y": 13
+            "y": 1
           },
           "id": 25,
           "options": {
@@ -547,11 +217,12 @@ data:
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "single",
               "sort": "none"
             }
           },
-          "pluginVersion": "10.2.2",
+          "pluginVersion": "12.0.0",
           "targets": [
             {
               "datasource": {
@@ -559,7 +230,7 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "sum(rate(hotrod_http_requests_total{endpoint=\"/\"}[5m])) by (error)",
+              "expr": "sum(rate(hotrod_requests_total{exported_endpoint=\"/\"}[5m])) by (error)",
               "interval": "",
               "legendFormat": "{{endpoint}} error: {{error}}",
               "range": true,
@@ -572,7 +243,7 @@ data:
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "PBFA97CFB590B2093"
+            "uid": "prometheus"
           },
           "description": "",
           "fieldConfig": {
@@ -587,6 +258,7 @@ data:
                 "axisLabel": "",
                 "axisPlacement": "auto",
                 "barAlignment": 0,
+                "barWidthFactor": 0.6,
                 "drawStyle": "line",
                 "fillOpacity": 10,
                 "gradientMode": "none",
@@ -617,8 +289,7 @@ data:
                 "mode": "absolute",
                 "steps": [
                   {
-                    "color": "green",
-                    "value": null
+                    "color": "green"
                   },
                   {
                     "color": "red",
@@ -628,13 +299,38 @@ data:
               },
               "unit": "s"
             },
-            "overrides": []
+            "overrides": [
+              {
+                "__systemRef": "hideSeriesFrom",
+                "matcher": {
+                  "id": "byNames",
+                  "options": {
+                    "mode": "exclude",
+                    "names": [
+                      "P99"
+                    ],
+                    "prefix": "All except:",
+                    "readOnly": true
+                  }
+                },
+                "properties": [
+                  {
+                    "id": "custom.hideFrom",
+                    "value": {
+                      "legend": false,
+                      "tooltip": false,
+                      "viz": true
+                    }
+                  }
+                ]
+              }
+            ]
           },
           "gridPos": {
             "h": 8,
             "w": 9,
             "x": 15,
-            "y": 13
+            "y": 1
           },
           "id": 15,
           "options": {
@@ -645,11 +341,12 @@ data:
               "showLegend": true
             },
             "tooltip": {
+              "hideZeros": false,
               "mode": "multi",
               "sort": "none"
             }
           },
-          "pluginVersion": "10.2.2",
+          "pluginVersion": "12.0.0",
           "targets": [
             {
               "datasource": {
@@ -657,7 +354,7 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile(0.99, sum(rate(hotrod_request_latency_bucket{endpoint=\"/\"}[5m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(hotrod_request_latency_bucket{exported_endpoint=\"/\"}[5m])) by (le))",
               "interval": "",
               "legendFormat": "P99",
               "range": true,
@@ -692,10 +389,10 @@ data:
           "type": "timeseries"
         }
       ],
+      "preload": false,
       "refresh": "10s",
-      "schemaVersion": 38,
+      "schemaVersion": 41,
       "tags": [
-        "Loki",
         "logging",
         "prometheus",
         "metrics",
@@ -706,67 +403,56 @@ data:
         "list": [
           {
             "current": {
-              "selected": false,
-              "text": "grafana-integration-hotrod-1",
-              "value": "grafana-integration-hotrod-1"
+              "text": "example-hotrod",
+              "value": "example-hotrod"
             },
             "datasource": {
-              "type": "loki",
-              "uid": "P8E80F9AEF21F6940"
+              "type": "prometheus",
+              "uid": "prometheus"
             },
-            "definition": "label_values({container_name=~\".+\"}, container_name)",
-            "hide": 0,
+            "definition": "label_values(hotrod_requests_total,container)",
             "includeAll": false,
             "label": "Service",
-            "multi": false,
             "name": "container_name",
             "options": [],
-            "query": "label_values({container_name=~\".+\"}, container_name)",
+            "query": {
+              "qryType": 1,
+              "query": "label_values(hotrod_requests_total,container)",
+              "refId": "PrometheusVariableQueryEditor-VariableQuery"
+            },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           },
           {
             "current": {
-              "selected": true,
-              "text": "error",
-              "value": "error"
+              "text": "",
+              "value": ""
             },
-            "hide": 0,
             "label": "Search (case insensitive)",
             "name": "searchable_pattern",
             "options": [
               {
                 "selected": true,
-                "text": "error",
-                "value": "error"
+                "text": "",
+                "value": ""
               }
             ],
-            "query": "error",
-            "skipUrlSync": false,
+            "query": "",
             "type": "textbox"
           },
           {
             "current": {
-              "selected": true,
-              "text": [
-                "All"
-              ],
+              "text": "All",
               "value": [
                 "$__all"
               ]
             },
             "datasource": {
               "type": "prometheus",
-              "uid": "PBFA97CFB590B2093"
+              "uid": "prometheus"
             },
-            "definition": "label_values(hotrod_requests_total,endpoint)",
-            "hide": 0,
+            "definition": "label_values(hotrod_requests_total,exported_endpoint)",
             "includeAll": true,
             "label": "Service",
             "multi": true,
@@ -774,17 +460,13 @@ data:
             "options": [],
             "query": {
               "qryType": 1,
-              "query": "label_values(hotrod_requests_total,endpoint)",
+              "query": "label_values(hotrod_requests_total,exported_endpoint)",
               "refId": "PrometheusVariableQueryEditor-VariableQuery"
             },
             "refresh": 2,
             "regex": "",
-            "skipUrlSync": false,
             "sort": 1,
-            "tagValuesQuery": "",
-            "tagsQuery": "",
-            "type": "query",
-            "useTags": false
+            "type": "query"
           }
         ]
       },
@@ -806,8 +488,7 @@ data:
         ]
       },
       "timezone": "",
-      "title": "HotROD - Metrics and Logs Overview",
-      "uid": "fRIvzUZMz",
-      "version": 1,
-      "weekStart": ""
+      "title": "HOTROD",
+      "uid": "fRIvzUZMzasdas",
+      "version": 2
     }
