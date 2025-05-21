@@ -29,7 +29,7 @@ spec:
               name: frontend
             - containerPort: 8081
               name: customer
-            - containerPort: 8088
+            - containerPort: 8083
               name: route
           resources:
             limits:
