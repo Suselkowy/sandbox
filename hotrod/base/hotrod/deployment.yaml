@@ -5,7 +5,7 @@ metadata:
     app: example-hotrod
   name: example-hotrod
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: example-hotrod
