@@ -16,7 +16,7 @@ spec:
         app: example-hotrod
     spec:
       containers:
-        - image: jaegertracing/example-hotrod:1.61.0
+        - image: jaegertracing/example-hotrod:1.44.0
           name: example-hotrod
           args: ["all"]
           env:
