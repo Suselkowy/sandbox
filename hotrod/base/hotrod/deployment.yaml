@@ -30,7 +30,7 @@ spec:
             - containerPort: 8081
               name: customer
             - containerPort: 8083
-              name: route
+              name: routee
           resources:
             limits:
               cpu: 100m
