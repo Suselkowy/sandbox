@@ -16,7 +16,7 @@ spec:
         app: example-hotrod
     spec:
       containers:
-        - image: suselkowy/example-hotrod:czesc
+        - image: suselkowy/example-hotrod:slow
           name: example-hotrod
           args: ["all"]
           env:
