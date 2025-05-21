@@ -27,7 +27,7 @@ data:
       "editable": true,
       "fiscalYearStartMonth": 0,
       "graphTooltip": 0,
-      "id": 26,
+      "id": 2,
       "links": [],
       "panels": [
         {
@@ -230,7 +230,7 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "sum(rate(hotrod_requests_total{exported_endpoint=\"/\"}[5m])) by (error)",
+              "expr": "sum(rate(hotrod_requests_total{exported_endpoint=\"$endpoint\"}[5m])) by (error)",
               "interval": "",
               "legendFormat": "{{endpoint}} error: {{error}}",
               "range": true,
@@ -354,7 +354,7 @@ data:
                 "uid": "PBFA97CFB590B2093"
               },
               "editorMode": "code",
-              "expr": "histogram_quantile(0.99, sum(rate(hotrod_request_latency_bucket{exported_endpoint=\"/\"}[5m])) by (le))",
+              "expr": "histogram_quantile(0.99, sum(rate(hotrod_request_latency_bucket{exported_endpoint=\"$endpoint\"}[5m])) by (le))",
               "interval": "",
               "legendFormat": "P99",
               "range": true,
@@ -490,5 +490,5 @@ data:
       "timezone": "",
       "title": "HOTROD",
       "uid": "fRIvzUZMzasdas",
-      "version": 2
+      "version": 1
     }
